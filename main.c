@@ -91,6 +91,19 @@ void print(struct node *head){
         }
     }
 }
+void getMax(struct node *head){
+    struct node *ptr=(struct node*)malloc(sizeof(node));
+    ptr=head;
+    printf("\nMax Value is: %d",ptr->maxValue);
+    
+}
+
+void getMin(struct node *head){
+    struct node *ptr=(struct node*)malloc(sizeof(node));
+    ptr=head;
+    printf("\nMin Value is: %d",ptr->minValue);
+    
+}
 int main(){
 
     
@@ -103,12 +116,20 @@ int main(){
 
     head=push(head,1);
     head=push(head,2);
+    head=push(head,3);
+    head=push(head,4);
+    head=push(head,1);
+    head=push(head,2);
+    head=push(head,0);
     
     print(head);
     
     top(head);
     
     print(head);
+    
+    getMax(head);
+    getMin(head);
     
     head=pop(head);
     
