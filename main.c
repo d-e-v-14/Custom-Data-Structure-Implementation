@@ -17,20 +17,12 @@ struct node *push(struct node *head,int value){
     head=temp;
     printf("\nAdded");
     
-    if(temp->link->minValue==NULL){
-        temp->minValue=value;
-    }else if((temp->link->minValue)>value){
-        temp->minValue=value;
-    }else{
-        temp->minValue = temp->link->minValue;
-    }
-    
-    if(temp->link->maxValue==NULL){
-        temp->maxValue=value;
-    }else if((temp->link->maxValue)<value){
-        temp->maxValue=value;
-    }else{
-        temp->maxValue = temp->link->maxValue;
+    if (head == NULL) {  
+        temp->minValue = value;
+        temp->maxValue = value;
+    } else {
+        temp->minValue = (head->minValue < value) ? head->minValue : value;
+        temp->maxValue = (head->maxValue > value) ? head->maxValue : value;
     }
 
     
@@ -89,19 +81,23 @@ void print(struct node *head){
         }
     }
 }
-void getMax(struct node *head){
-    struct node *ptr=(struct node*)malloc(sizeof(struct node));
-    ptr=head;
-    printf("\nMax Value is: %d",ptr->maxValue);
-    
+void getMax(struct node *head) {
+    if (head == NULL) {
+        printf("\nStack is empty!");
+        return;
+    }
+    printf("\nMax Value is: %d", head->maxValue);
 }
 
-void getMin(struct node *head){
-    struct node *ptr=(struct node*)malloc(sizeof(struct node));
-    ptr=head;
-    printf("\nMin Value is: %d",ptr->minValue);
-    
+
+void getMin(struct node *head) {
+    if (head == NULL) {
+        printf("\nStack is empty!");
+        return;
+    }
+    printf("\nMax Value is: %d", head->minValue);
 }
+
 int main(){
 
     
