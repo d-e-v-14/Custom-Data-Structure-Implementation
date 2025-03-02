@@ -7,7 +7,7 @@ struct node{
     
 };
 
-void push(struct node *head,int value){
+struct node *push(struct node *head,int value){
     
     struct node *temp=(struct node*)malloc(sizeof(node));
     
@@ -15,6 +15,8 @@ void push(struct node *head,int value){
     temp->link=head;
     head=temp;
     printf("\nAdded");
+    
+    return head;
     
 }
 
@@ -36,7 +38,39 @@ struct node *pop(struct node *head){
     
 }
 
+void top(struct node *head){
+    
+    struct node *temp=(struct node*)malloc(sizeof(node));
+    temp=head;
+    
+    if(temp==NULL){
+        printf("\nStack is empty");
+    }else if(temp->link==NULL){
+        printf("\nDefault value: 0");
+    }else{
+        printf("\nThe top value is: %d",temp->value);
+    }
+    
+}
 
+void print(struct node *head){
+    
+    struct node *ptr=(struct node*)malloc(sizeof(node));
+    ptr=head;
+    
+    if(ptr==NULL){
+        printf("\nThe Stack is empty");
+    }else if(ptr->link==NULL){
+        printf("\nStack only has default value 0");
+    }else{
+        printf("\n");
+        printf("Updated Stack: ");
+        while(ptr->link!=NULL){
+            printf("%d ",ptr->value);
+            ptr=ptr->link;
+        }
+    }
+}
 int main(){
     
     struct node *head;
@@ -45,12 +79,20 @@ int main(){
     head->value=0;
     head->link=NULL;
     
-    int val;
-    scanf("%d",&val);
-    push(head,val);
+
+    head=push(head,1);
+    head=push(head,2);
+    
+    print(head);
+    
+    top(head);
+    
+    print(head);
     
     head=pop(head);
     
+    print(head);
+
     
     
     
