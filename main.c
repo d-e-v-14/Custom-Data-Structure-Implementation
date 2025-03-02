@@ -114,28 +114,53 @@ int main(){
     head->link=NULL;
     
 
-    head=push(head,1);
-    head=push(head,2);
-    head=push(head,3);
-    head=push(head,4);
-    head=push(head,1);
-    head=push(head,2);
-    head=push(head,0);
     
-    print(head);
-    
-    top(head);
-    
-    print(head);
-    
-    getMax(head);
-    getMin(head);
-    
-    head=pop(head);
-    
-    print(head);
+    int menu=0;
+            
+        printf("\n=====================================");
+        printf("\n           STACK OPERATIONS          ");
+        printf("\n=====================================");
+        printf("\n1. Push a value onto the stack");
+        printf("\n2. Pop a value from the top of the stack");
+        printf("\n3. Print the top value of the stack");
+        printf("\n4. Get the maximum value in the stack");
+        printf("\n5. Get the minimum value in the stack");
+        printf("\n6. Exit");
+        printf("\n-------------------------------------");
+        
+    while(menu==0){
 
-    
-    
-    
+        printf("\nEnter your choice: ");
+
+        scanf("%d",&menu);
+        
+        if (menu == 1) {
+        int push_value;
+        printf("Enter value to push: ");
+        scanf("%d", &push_value);
+        
+        head = push(head, push_value);
+        menu = 0;
+    } else if (menu == 2) {
+        head = pop(head);
+        menu = 0; 
+    } else if (menu == 3) {
+        top(head);
+        menu = 0;      
+    } else if (menu == 4) {
+        getMax(head);
+        menu = 0;        
+    } else if (menu == 5) {
+        getMin(head);
+        menu = 0;
+    } else if (menu == 6) {
+        printf("Exited Successfully!\n");
+        break;
+    } else {
+        printf("Invalid entry!\n");
+        printf("Enter your choice: ");
+    }
+       
+    }
+   
 }
