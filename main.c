@@ -32,8 +32,6 @@ struct node *push(struct node *head,int value){
     }else{
         temp->maxValue = temp->link->maxValue;
     }
-    
-    printf("Min: %d , Max: %d",temp->minValue,temp->maxValue);
 
     
     return head;
