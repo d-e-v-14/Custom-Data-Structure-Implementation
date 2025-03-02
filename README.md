@@ -1,11 +1,15 @@
-# Custom-Data-Structure-Implementation
+# Stack Implementation Using Linked List
 
-**GOAL**
- Design a stack that supports the following operations in O(1) time and O(n) space:
- push(x): Pushes element x onto the stack.\n pop(): Removes the top element of the stack.
- top(): Returns the top element without removing it.
- getMin(): Returns the smallest element in the stack.
- getMax(): Returns the largest element in the stack.
+## **Goal**
+Design a stack that supports the following operations in **O(1) time** and **O(n) space**:
 
-**APPROACH**
- Linked Lists
+- `push(x)`: Pushes element `x` onto the stack.
+- `pop()`: Removes the top element of the stack.
+- `top()`: Returns the top element **without removing** it.
+- `getMin()`: Returns the **smallest** element in the stack.
+- `getMax()`: Returns the **largest** element in the stack.
+
+## **Approach**
+The stack is implemented using a **linked list**, allowing dynamic memory allocation and efficient element access.
+
+---
