@@ -4,7 +4,8 @@
 struct node{
     int value;
     struct node *link;
-    
+    int minValue;
+    int maxValue;
 };
 
 struct node *push(struct node *head,int value){
@@ -15,6 +16,25 @@ struct node *push(struct node *head,int value){
     temp->link=head;
     head=temp;
     printf("\nAdded");
+    
+    if(temp->link->minValue==NULL){
+        temp->minValue=value;
+    }else if((temp->link->minValue)>value){
+        temp->minValue=value;
+    }else{
+        temp->minValue = temp->link->minValue;
+    }
+    
+    if(temp->link->maxValue==NULL){
+        temp->maxValue=value;
+    }else if((temp->link->maxValue)<value){
+        temp->maxValue=value;
+    }else{
+        temp->maxValue = temp->link->maxValue;
+    }
+    
+    printf("Min: %d , Max: %d",temp->minValue,temp->maxValue);
+
     
     return head;
     
@@ -72,6 +92,7 @@ void print(struct node *head){
     }
 }
 int main(){
+
     
     struct node *head;
     head=(struct node*)malloc(sizeof(node));
