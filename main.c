@@ -10,7 +10,7 @@ struct node{
 
 struct node *push(struct node *head,int value){
     
-    struct node *temp=(struct node*)malloc(sizeof(node));
+    struct node *temp=(struct node*)malloc(sizeof(struct node));
     
     temp->value=value;
     temp->link=head;
@@ -46,7 +46,7 @@ struct node *pop(struct node *head){
     if(head==NULL){
         printf("\nThe list is empty");
     }else{
-        struct node *temp=(struct node*)malloc(sizeof(node));
+        struct node *temp=(struct node*)malloc(sizeof(struct node));
         temp=head;
         head=head->link;
         free(temp);
@@ -60,7 +60,7 @@ struct node *pop(struct node *head){
 
 void top(struct node *head){
     
-    struct node *temp=(struct node*)malloc(sizeof(node));
+    struct node *temp=(struct node*)malloc(sizeof(struct node));
     temp=head;
     
     if(temp==NULL){
@@ -75,7 +75,7 @@ void top(struct node *head){
 
 void print(struct node *head){
     
-    struct node *ptr=(struct node*)malloc(sizeof(node));
+    struct node *ptr=(struct node*)malloc(sizeof(struct node));
     ptr=head;
     
     if(ptr==NULL){
@@ -92,14 +92,14 @@ void print(struct node *head){
     }
 }
 void getMax(struct node *head){
-    struct node *ptr=(struct node*)malloc(sizeof(node));
+    struct node *ptr=(struct node*)malloc(sizeof(struct node));
     ptr=head;
     printf("\nMax Value is: %d",ptr->maxValue);
     
 }
 
 void getMin(struct node *head){
-    struct node *ptr=(struct node*)malloc(sizeof(node));
+    struct node *ptr=(struct node*)malloc(sizeof(struct node));
     ptr=head;
     printf("\nMin Value is: %d",ptr->minValue);
     
@@ -108,7 +108,7 @@ int main(){
 
     
     struct node *head;
-    head=(struct node*)malloc(sizeof(node));
+    head=(struct node*)malloc(sizeof(struct node));
     
     head->value=0;
     head->link=NULL;
