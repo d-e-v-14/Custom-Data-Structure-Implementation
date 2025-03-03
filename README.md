@@ -57,9 +57,9 @@ A stack can be implemented using a **linked list**, which consists of nodes wher
 - **Top Operation**:
   - Return the data of the top node.
 - **minValue Operation**:
-  - Retrieve the minimum element in constant time using an auxiliary structure.
+  - Retrieve the minimum element in constant time using an auxiliary variable.
 - **maxValue Operation**:
-  - Retrieve the maximum element in constant time using an auxiliary structure.
+  - Retrieve the maximum element in constant time using an auxiliary variable.
 
 ## **Usage Instructions**
 1. Run the program.
