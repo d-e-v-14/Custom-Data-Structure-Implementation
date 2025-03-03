@@ -12,4 +12,5 @@ Design a stack that supports the following operations in **O(1) time** and **O(n
 ## **Approach**
 The stack is implemented using a **linked list**, allowing dynamic memory allocation and efficient element access.
 
+
 ---

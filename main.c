@@ -1,58 +1,66 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//structure for node creation
+
 struct node{
     int value;
-    struct node *link;
-    int minValue;
-    int maxValue;
+    struct node *link; 
+    int minValue; //updates minimum value 
+    int maxValue; //updates the maximum value
 };
 
+//Push function: Pushes element x onto the stack.
+//Time Complexity: O(1)
 struct node *push(struct node *head,int value){
     
-    struct node *temp=(struct node*)malloc(sizeof(struct node));
+    struct node *temp=(struct node*)malloc(sizeof(struct node)); //allocation of memory
     
-    temp->value=value;
-    temp->link=head;
+    temp->value=value; //assigning value to empty structure temp
+    temp->link=head;  //temp is an independant node 
 
     if(head==NULL){  
         temp->minValue = value;
         temp->maxValue = value;
     }else{
-        temp->minValue=(head->minValue < value)?head->minValue:value;
-        temp->maxValue=(head->maxValue > value)?head->maxValue:value;
+        temp->minValue=(head->minValue < value)?head->minValue:value; //updation of minimum value
+        temp->maxValue=(head->maxValue > value)?head->maxValue:value; //updation of maximum value
         }
 
-    head=temp;
+    head=temp; //temp is the new head
 
     printf("\nAdded");
    
-    return head;
+    return head; 
     
 }
 
+//Pop function: Removes the top element of the stack
+//Time Complexity: O(1)
 struct node *pop(struct node *head){
     
 
     if(head==NULL){
-        printf("\nStack is empty");
+        printf("\nStack is empty"); //if head is empty, returns a stack is empty prompt
     }else{
 
         struct node *temp=(struct node*)malloc(sizeof(struct node));
-        temp=head;
-        head=head->link;
-        free(temp);
+        temp=head; //stores the head->link in a new structure temp
+        head=head->link; //assigns the new head as head->link
+
+        free(temp); //frees the temp node for preventing memory leaks
         printf("\nElement popped");
         
-        if (head == NULL) 
+        if (head == NULL) //returns null is head is empty after element removal
         return NULL; 
         
-        head->maxValue=head->value;
+        head->maxValue=head->value; //assigns max and min value as value in the new head
         head->minValue=head->value;
         
-        struct node *ptr=(struct node*)malloc(sizeof(struct node));
-        ptr=head;
+        struct node *ptr=(struct node*)malloc(sizeof(struct node)); 
+        ptr=head; //creates a temporary node for assigning as head
         
+        // iterates through the stack to fetch the new min and max values
          while(ptr->link!=NULL){
                 if(ptr->value>head->maxValue)
                 head->maxValue=ptr->value;
@@ -70,26 +78,28 @@ struct node *pop(struct node *head){
     
    
 }
-
+//Top functio:  Returns the top element without removing it
+//Time Complexity: O(1)
 void top(struct node *head){
-    
+    //creates a temporary node
     struct node *temp=(struct node*)malloc(sizeof(struct node));
-    temp=head;
+    temp=head; //temporary node is assigned as head
     
     if(temp==NULL){
-        printf("\nStack is empty");
+        printf("\nStack is empty"); //returns a prompt if stack is empty
     }else if(temp->link==NULL){
-        printf("\nDefault value: 0");
+        printf("\nDefault value: 0"); //defaultvalue prestored in stack is 0 (as base value)
     }else{
-        printf("\nThe top value is: %d",temp->value);
+        printf("\nThe top value is: %d",temp->value); //returns the value of head(top most)
     }
     
 }
-
+//Print function: Prints the current stack
+//Time Complexity: O(n)
 void print(struct node *head){
     
     struct node *ptr=(struct node*)malloc(sizeof(struct node));
-    ptr=head;
+    ptr=head; 
     
     if(ptr==NULL){
         printf("\nThe Stack is empty");
@@ -98,21 +108,24 @@ void print(struct node *head){
     }else{
         printf("\n");
         printf("Updated Stack: ");
-        while(ptr->link!=NULL){
-            printf("%d ",ptr->value);
-            ptr=ptr->link;
+        while(ptr->link!=NULL){ //runs until link of node is null i.e. last value is reached
+            printf("%d ",ptr->value); //prints the value of current node
+            ptr=ptr->link; //assigns the ptr to the value of next node which is stored in link of current node
         }
     }
 }
+//Maximum value function: Returns the largest element in the stack
+//Time Complexity: O(1)
 void getMax(struct node *head) {
     if(head==NULL){
         printf("\nStack is empty!");
         return;
     }
-    printf("\nMax Value is: %d", head->maxValue);
+    printf("\nMax Value is: %d", head->maxValue); //returns the maxValue element from the current head
 }
 
-
+//Minimum value function: Returns the smallest element in the stack
+////Time Complexity: O(1)
 void getMin(struct node *head) {
     if(head==NULL){
         printf("\nStack is empty!");
@@ -123,15 +136,15 @@ void getMin(struct node *head) {
 
 int main(){
 
-    
+    //head is created 
     struct node *head;
     head=(struct node*)malloc(sizeof(struct node));
     
-    head->value=0;
-    head->link=NULL;
+    head->value=0;//default value in head set to 0
+    head->link=NULL;//default link set to null i.e. head is the tail
     
 
-    
+    //menu incorporated 
     int menu=0;
             
         printf("\n=====================================");
@@ -175,10 +188,10 @@ int main(){
         print(head);
         menu=0;
     }else if (menu == 7) {
-        printf("Exited Successfully!\n");
+        printf("Exited Successfully!\n"); //ends the while loop if menu == 7
         break;
     } else {
-        printf("Invalid entry!\n");
+        printf("Invalid entry!\n"); //checks for invalid entries
         printf("Enter your choice: ");
     }
        
