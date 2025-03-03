@@ -47,12 +47,12 @@ A stack can be implemented using a **linked list**, which consists of nodes wher
   - Create a new node.
   - Point its "next" to the current top.
   - Update the top to this new node.
-  - Update min/max tracking structures.
+  - Update min/max tracking variables.
 - **Pop Operation**:
   - Check if the stack is empty.
   - Store the top node in a temporary variable.
   - Move the top pointer to the next node.
-  - Update min/max tracking structures.
+  - Update min/max tracking variable.
   - Delete the temporary node.
 - **Top Operation**:
   - Return the data of the top node.
