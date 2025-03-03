@@ -35,7 +35,7 @@ struct node *pop(struct node *head){
     
 
     if(head==NULL){
-        printf("\nThe list is empty");
+        printf("\nStack is empty");
     }else{
 
         struct node *temp=(struct node*)malloc(sizeof(struct node));
@@ -44,10 +44,31 @@ struct node *pop(struct node *head){
         free(temp);
         printf("\nElement popped");
         
+        if (head == NULL) 
+        return NULL; 
+        
+        head->maxValue=head->value;
+        head->minValue=head->value;
+        
+        struct node *ptr=(struct node*)malloc(sizeof(struct node));
+        ptr=head;
+        
+         while(ptr->link!=NULL){
+                if(ptr->value>head->maxValue)
+                head->maxValue=ptr->value;
+                else if(ptr->value<head->minValue)
+                head->minValue=ptr->value;
+                
+               ptr=ptr->link;
+             
+         }
+        
     }
+
+ 
+        return head;
     
-    return head;
-    
+   
 }
 
 void top(struct node *head){
@@ -121,7 +142,8 @@ int main(){
         printf("\n3. Print the top value of the stack");
         printf("\n4. Get the maximum value in the stack");
         printf("\n5. Get the minimum value in the stack");
-        printf("\n6. Exit");
+        printf("\n6. Print the present stack");
+        printf("\n7. Exit");
         printf("\n-------------------------------------");
         
     while(menu==0){
@@ -149,7 +171,10 @@ int main(){
     } else if (menu == 5) {
         getMin(head);
         menu = 0;
-    } else if (menu == 6) {
+    }else if(menu==6){
+        print(head);
+        menu=0;
+    }else if (menu == 7) {
         printf("Exited Successfully!\n");
         break;
     } else {
