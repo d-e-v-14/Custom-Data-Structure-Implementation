@@ -13,7 +13,7 @@ Design a stack that supports the following operations in **O(1) time** and **O(n
 This is a simple menu-driven program that allows you to manipulate stacks. The program begins by creating the head node of a stack using a linked list structure. Users can perform various stack operations such as push, pop, peek, getMin, getMax, and display.
 
 ## **Approach**
-The stack is implemented using a **linked list**, allowing dynamic memory allocation and efficient element access. By maintaining additional tracking pointers or auxiliary stacks, we ensure that `getMin()` and `getMax()` operations can be performed in constant time.
+The stack is implemented using a **linked list**, allowing dynamic memory allocation and efficient element access. By maintaining additional tracking pointers or auxiliary variables, we ensure that `getMin()` and `getMax()` operations can be performed in constant time.
 
 ## **Understanding Stacks**
 A **stack** is a linear data structure that follows the **LIFO (Last In, First Out)** principle. This means that the last element added to the stack is the first one to be removed. Common stack operations include:
@@ -67,5 +67,5 @@ A stack can be implemented using a **linked list**, which consists of nodes wher
 3. Continue until you decide to exit.
 
 ## **Conclusion**
-This program provides a simple yet effective way to interact with stacks using a linked list, demonstrating dynamic memory allocation and efficient stack operations. The additional tracking mechanism ensures `getMin()` and `getMax()` operations can be performed in **O(1) time**, making this stack implementation highly optimized for real-world applications.
+This program provides a simple yet effective way to interact with stacks using a linked list, demonstrating dynamic memory allocation and stack operations. The additional tracking mechanism ensures `getMin()` and `getMax()` operations can be performed in **O(1) time**, making this stack implementation highly optimized.
 
